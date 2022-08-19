@@ -51,7 +51,7 @@ export default {
     const finalOptions = {
       ...defaultOptions,
       ...options,
-      touchID: !!ACCESS_CONTROL[options?.accessControl]
+      touchID: !!options?.accessControl
     }
     return RNSecureStorage.getItem(key, finalOptions)
   },
@@ -59,6 +59,7 @@ export default {
     const finalOptions = {
       ...defaultOptions,
       ...options,
+      touchID: !!options?.accessControl
     }
     return RNSecureStorage.setItem(key, value, finalOptions)
   },
@@ -73,7 +74,7 @@ export default {
     const finalOptions = {
       ...defaultOptions,
       ...options,
-      touchID: !!ACCESS_CONTROL[options?.accessControl]
+      touchID: !!options?.accessControl
     }
     return RNSecureStorage.getAllKeys(finalOptions)
   },

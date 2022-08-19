@@ -63,7 +63,7 @@ import javax.security.auth.x500.X500Principal;
 
 public class RNSecureStorageModule extends ReactContextBaseJavaModule {
 
-  public static final String SECURE_STORAGE_MODULE = "RNSecureStorageModule";
+  public static final String SECURE_STORAGE_MODULE = "RNSecureStorage";
   public static final String DEFAULT_SERVICE = "RN_SECURE_STORAGE_DEFAULT_ALIAS";
   // This must have 'AndroidKeyStore' as value. Unfortunately there is no predefined constant.
   private static final String ANDROID_KEYSTORE_PROVIDER = "AndroidKeyStore";

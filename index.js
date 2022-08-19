@@ -51,9 +51,7 @@ export default {
     const finalOptions = {
       ...defaultOptions,
       ...options,
-    }
-    if (isAndroid) {
-      return RNSecureStorage.getItem(key, finalOptions.service)
+      touchID: !!ACCESS_CONTROL[options?.accessControl]
     }
     return RNSecureStorage.getItem(key, finalOptions)
   },
@@ -62,9 +60,6 @@ export default {
       ...defaultOptions,
       ...options,
     }
-    if (isAndroid) {
-      return RNSecureStorage.setItem(key, value, finalOptions.service)
-    }
     return RNSecureStorage.setItem(key, value, finalOptions)
   },
   removeItem(key, options) {
@@ -72,18 +67,13 @@ export default {
       ...defaultOptions,
       ...options,
     }
-    if (isAndroid) {
-      return RNSecureStorage.removeItem(key, finalOptions.service)
-    }
     return RNSecureStorage.removeItem(key, finalOptions)
   },
   getAllKeys(options) {
     const finalOptions = {
       ...defaultOptions,
       ...options,
-    }
-    if (isAndroid) {
-      return RNSecureStorage.getAllKeys(finalOptions.service)
+      touchID: !!ACCESS_CONTROL[options?.accessControl]
     }
     return RNSecureStorage.getAllKeys(finalOptions)
   },

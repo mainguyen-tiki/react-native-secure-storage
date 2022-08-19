@@ -41,7 +41,7 @@ repositories {
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
-    compile 'com.facebook.conceal:conceal:1.1.3@aar'
+    compile 'androidx.biometric:biometric:1.0.1'
 }
 
 def configureReactNativePom(def pom) {

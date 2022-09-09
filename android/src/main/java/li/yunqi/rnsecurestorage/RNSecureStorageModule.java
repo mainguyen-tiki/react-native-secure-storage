@@ -365,6 +365,7 @@ public class RNSecureStorageModule extends ReactContextBaseJavaModule {
     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M && hasSetupBiometricCredential()) {
       try {
         if (cipher == null) {
+           prepareKey();
           SecretKey secretKey = (SecretKey) mKeyStore.getKey(KEY_ALIAS_AES, null);
           cipher = Cipher.getInstance(AES_DEFAULT_TRANSFORMATION);
           cipher.init(Cipher.ENCRYPT_MODE, secretKey);

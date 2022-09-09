@@ -68,6 +68,9 @@ export default {
       ...defaultOptions,
       ...options,
     }
+    if(isAndroid) {
+      return RNSecureStorage.deleteItem(key, finalOptions)
+    }
     return RNSecureStorage.removeItem(key, finalOptions)
   },
   getAllKeys(options) {

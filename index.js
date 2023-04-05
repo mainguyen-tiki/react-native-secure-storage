@@ -35,7 +35,7 @@ export const BIOMETRY_TYPE = {
   FINGERPRINT: 'Fingerprint',
 };
 
-const isAndroid = Platform.OS === 'android'
+const isAndroid = Platform.OS === 'android';
 
 const defaultOptions = {
   accessControl: null,

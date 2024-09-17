@@ -35,7 +35,7 @@ export const BIOMETRY_TYPE = {
   FINGERPRINT: 'Fingerprint',
 };
 
-const isAndroid = Platform.OS === 'android'
+const isAndroid = Platform.OS === 'android';
 
 const defaultOptions = {
   accessControl: null,
@@ -51,9 +51,7 @@ export default {
     const finalOptions = {
       ...defaultOptions,
       ...options,
-    }
-    if (isAndroid) {
-      return RNSecureStorage.getItem(key, finalOptions.service)
+      touchID: !!options?.accessControl
     }
     return RNSecureStorage.getItem(key, finalOptions)
   },
@@ -61,9 +59,7 @@ export default {
     const finalOptions = {
       ...defaultOptions,
       ...options,
-    }
-    if (isAndroid) {
-      return RNSecureStorage.setItem(key, value, finalOptions.service)
+      touchID: !!options?.accessControl
     }
     return RNSecureStorage.setItem(key, value, finalOptions)
   },
@@ -72,8 +68,8 @@ export default {
       ...defaultOptions,
       ...options,
     }
-    if (isAndroid) {
-      return RNSecureStorage.removeItem(key, finalOptions.service)
+    if(isAndroid) {
+      return RNSecureStorage.deleteItem(key, finalOptions)
     }
     return RNSecureStorage.removeItem(key, finalOptions)
   },
@@ -81,9 +77,7 @@ export default {
     const finalOptions = {
       ...defaultOptions,
       ...options,
-    }
-    if (isAndroid) {
-      return RNSecureStorage.getAllKeys(finalOptions.service)
+      touchID: !!options?.accessControl
     }
     return RNSecureStorage.getAllKeys(finalOptions)
   },
